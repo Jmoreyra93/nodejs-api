@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-api",
+  "version": "0.0.1",
+  "description": "API back end",
+  "main": "app1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jmoreyra93/nodejs-api.git"
+  },
+  "author": "Julian Moreyra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jmoreyra93/nodejs-api/issues"
+  },
+  "homepage": "https://github.com/Jmoreyra93/nodejs-api#readme",
+  "dependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
