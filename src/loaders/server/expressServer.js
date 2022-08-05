@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-//const swaggerUi = require('swagger-ui-express');
+const swaggerUi = require('swagger-ui-express');
 const config = require('../../config');
 const logger = require('../logger');
 
@@ -14,7 +14,7 @@ class ExpressServer {
 
         this._middlewares();
         
-        //this._swaggerConfig();
+        this._swaggerConfig();
 
         this._routes();
 
@@ -62,13 +62,13 @@ class ExpressServer {
         });
     }
 
-    // _swaggerConfig(){
-    //     this.app.use(
-    //         config.swagger.path, 
-    //         swaggerUi.serve, 
-    //         swaggerUi.setup(require('../swagger/swagger.json'))
-    //     );
-    // }
+    _swaggerConfig(){
+        this.app.use(
+            config.swagger.path, 
+            swaggerUi.serve, 
+            swaggerUi.setup(require('../swagger/swagger.json'))
+        );
+    }
 
     async start() {
         this.app.listen(this.port, (error) => {
