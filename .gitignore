@@ -1,4 +1,7 @@
-
+#node modules
 node_modules
+
+#envairoment
 .env
+
 
