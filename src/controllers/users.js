@@ -1,69 +1,24 @@
 const express = require('express');
+const userService = require('../services/userService');
+const Success = require('../handlers/successHandler');
+const logger = require('../loaders/logger');
 
-
-// OBTENER TODOS LOS USUARIOS
 /**
  * 
  * @param {express.Request} req 
  * @param {express.Response} res 
  */
+const getAllUsers = async (req, res, next) => {
+    try {
 
-const getAllUsers = (req, res) => {
+        logger.info('Query: ' + JSON.stringify(req.query));
 
-    const users = [
-        {
-            id: 1,
-            name: 'Fernando'
-        },
-        {
-            id: 2,
-            name: 'Marta'
-        },
-    ]
-
-    res.json(users);
-};
-
-
-// CREAR USUARIO
-/**
- * 
- * @param {express.Request} req 
- * @param {express.Response} res 
- */
-
-const createUser = (req, res) => {
-
-    const user = req.body;
-    user.id = 86546;
-
-    const result = {
-        message: 'User created',
-        user
+        const users = await userService.findAll(req.query.filter, req.query.options);
+        res.json(new Success(users));
+        
+    } catch (err) {
+        next(err);
     }
-    res.status(201).json(result);
-};
-
-
-
-// ACTUALIZAR USUARIO:ID
-/**
- * 
- * @param {express.Request} req 
- * @param {express.Response} res 
- */
-const updateUser = (req, res) => {
-
-    const { id } = req.params;
-    const user = req.body;
-
-    user.id = id;
-
-    const result = {
-        message: 'User updated',
-        user
-    }
-    res.json(result);
 };
 
 /**
@@ -71,32 +26,68 @@ const updateUser = (req, res) => {
  * @param {express.Request} req 
  * @param {express.Response} res 
  */
-const updatePartialUser = (req, res) => {
-    const result = {
-        message: 'User updated with patch'
+const createUser = async (req, res, next) => {
+    try {
+        let user = req.body;
+        user = await userService.save(user);
+
+        res.status(201).json(new Success(user));
+    } catch (err) {
+        next(err);
     }
-    res.json(result);
 };
-// ELIMINAR USUARIO
+
 /**
  * 
  * @param {express.Request} req 
  * @param {express.Response} res 
  */
-const deleteUser = (req, res) => {
+const updateUser = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        let user = req.body;
 
-    const { id } = req.params;
-    //const id = req.params.id;
-    const result = {
-        message: `User with id: ${id} deleted`
+        const userUpdated = await userService.update(id, user);
+
+        res.json(new Success(userUpdated));
+    } catch (err) {
+        next(err);
     }
-    res.json(result);
+};
+
+/**
+ * 
+ * @param {express.Request} req 
+ * @param {express.Response} res 
+ */
+const getById = async (req, res) => {
+    try {
+        const user = await userService.findById(req.params.id);
+        res.json(new Success(user));
+    } catch (err) {
+        next(err);
+    }
+};
+
+/**
+ * 
+ * @param {express.Request} req 
+ * @param {express.Response} res 
+ */
+const deleteUser = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const user = await userService.remove(id);
+        res.json(new Success(user));
+    } catch (err) {
+        next(err);
+    }
 };
 
 module.exports = {
     getAllUsers,
     createUser,
     updateUser,
-    updatePartialUser,
+    getById,
     deleteUser
 }

@@ -81,6 +81,10 @@ src
    |  |__logger
    |  |  |__index.js
    |  |
+   |  |
+   |  |__mongoose
+   |  |  |__index.js
+   |  |
    |  |__ server
    |  |  |__expressServerjs
    |  |
@@ -90,19 +94,24 @@ src
    |  |
    |  |__index.js
    |
+   |__models
+   |  |__users.js
+   |
    |__routes
-      |__users
+      |__users.js
 
 
 src/config -> VOY A TENER LAS PROPIEDADES(PUERTO,DB)
 
-src/controllers -> CRUD DE USUARIOS
+src/controllers -> CRUD DE USUARIOS QUE LO UNO CON EL MODELO
 
 src/loaders -> VOY A TENER TODO LO NECESARIO ANTES QUE SE INICIE LA APP(librerias,clases,etc)
 src/loaders/logger -> 
 src/loaders/server ->CONFIGURACION DE COMO LEVANTAR EL SERVER EXPRESS
 src/loaders/swagger ->DOCUMENTACIÓN
 src/loaders/index.js -> INICIALIZACIÓN DEL PROYECTO
+
+src/models -> CREO EL SCHEMA
 
 src/routes -> VOY A CONFIGURAR LAS RUTAS
 
