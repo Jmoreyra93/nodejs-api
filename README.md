@@ -54,20 +54,50 @@ npm run dev
 - Node JS
 - Nodemon
 
+-----------------------------------------------------
+# Modelo
 
 
-= = = = = = = = = = = = = = = = = 
+<img src="postman/img/modelo.jpg" width="600">
+
+*Category in procces
+*Product in procces
+
+-----------------------------------------------------
+# Documentación Swagger 
+
+<img src="https://user-images.githubusercontent.com/83317418/185000274-0fff28a4-301a-4358-b3b1-38ae426d39ea.jpg" width="400">
+
+-----------------------------------------------------
+# Postman Test 
+
+<img src="https://user-images.githubusercontent.com/83317418/185000148-8c24c380-d94b-4235-8dac-6d01386bdb86.jpg" width="400">
+
+
+-----------------------------------------------------
+
 ```sh
 package.json
 .gitignore
-env
+.env
+postman
 src
    |__config 
    |  |__index.js
    |
+   |__constants
+   |  |__index.js
+   |
    |__controllers
    |  |__users.js
-   | 
+   |  |__auth.js
+   |
+   |__errors
+   |  |__appError.js
+   |
+   |__handlers
+   |  |__successHandler.js
+   |
    |__loaders
    |  |
    |  |__logger
@@ -86,32 +116,47 @@ src
    |  |
    |  |__index.js
    |
+   |__middlewares
+   |  |
+   |  |__auth
+   |  |  |__index.js
+   |  |
+   |  |__users
+   |  |  |__index.js 
+   |  |
+   |  |__commons.js
+   |
    |__models
    |  |__users.js
    |
+   |__repositories
+   |  |__usersRepository.js
+   |
    |__routes
-      |__users.js
+   |  |__users.js
+   |
+   |__services
+      |__index.js   
 ```
 
-src/config -> VOY A TENER LAS PROPIEDADES(PUERTO,DB)
+config -> Propiedades de configuracion(PUERTO,DB)
 
-src/controllers -> CRUD DE USUARIOS QUE LO UNO CON EL MODELO
+controllers -> CRUD DE USUARIOS QUE LO UNO CON EL MODELO
 
-src/loaders -> VOY A TENER TODO LO NECESARIO ANTES QUE SE INICIE LA APP(librerias,clases,etc)
+loaders -> VOY A TENER TODO LO NECESARIO ANTES QUE SE INICIE LA APP(librerias,clases,etc)
 
-src/loaders/logger -> 
+logger -> 
 
-src/loaders/server ->CONFIGURACION DE COMO LEVANTAR EL SERVER EXPRESS
+server ->CONFIGURACION DE COMO LEVANTAR EL SERVER EXPRESS
 
-src/loaders/swagger ->DOCUMENTACIÓN
+swagger ->DOCUMENTACIÓN
 
 src/loaders/index.js -> INICIALIZACIÓN DEL PROYECTO
 
-src/models -> CREO EL SCHEMA
+models -> CREO EL SCHEMA
 
-src/routes -> VOY A CONFIGURAR LAS RUTAS
-
-src/users   
+routes -> VOY A CONFIGURAR LAS RUTAS
+(en proceso de terminar)
 
 
 -----------------
