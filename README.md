@@ -7,9 +7,9 @@
 Install the dependencies and devDependencies and start the server.
 
 ```sh
-cd dillinger
+cd nodejs-api
 npm i
-node app
+npx nodemon src
 ```
 
 For production environments...
