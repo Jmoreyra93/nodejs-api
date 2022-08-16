@@ -21,20 +21,26 @@ npm run dev
 
 -----------------------------------------------------
 
-## DEPENDENCIAS
 
 
-| Dependencias | README |
-| ------ | ------ |
-| nodemon | [plugins/dropbox/README.md][PlDb] |
-| dotenv | [plugins/github/README.md][PlGh] |
-| express | [plugins/googledrive/README.md][PlGd] |
-| morgan | [plugins/onedrive/README.md][PlOd] |
-| winston | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
+
+| Dependencias |
+| ------ |
+| nodemon | 
+| dotenv | 
+| express | 
+| express-validator | 
+| morgan | 
+| mongoose |
+| mongoose-paginate-v2 |
+| mongoose-unique-validator |
+| swagger-ui-express |
+| bcrypt |
+| jsonwebtoken |
 
 
-(npx)
+
+
 
 -----------------------------------------------------
 
@@ -48,23 +54,7 @@ npm run dev
 - Node JS
 - Nodemon
 
------------------------------------------------------
 
------------------------------------------------------
-
-# CAPAS : PATRON MVC
-
-CONTROLLER : ROUTES(path) , CLI menus
-
-LOGICA/NEGOCIO  
-
-MODELO
-
-REPOSITORIO
-
-HELPERS
-
-(LIBRERIAS Y/0 PAQUETES)
 
 = = = = = = = = = = = = = = = = = 
 ```sh
@@ -125,9 +115,3 @@ src/users
 
 
 -----------------
-
-#FALTA :
-
-SWAGGER 
-POSTMAN-AUTORIZACION
-
